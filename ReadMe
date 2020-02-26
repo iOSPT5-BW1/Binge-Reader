@@ -1,6 +1,6 @@
 iospt5 Build Week 1 project by Jordan Skenandore and Chris Price. 
 
-This project tracks the users reading. They can add books they want to read and mark them off to keep track of what they've already read. This way they don't have to waste time wondering where they left off or trying to remember what the title is of that book a friend recommended. 
+This project tracks the users reading. They can add books they want to read and keep track of what they've already read. This way they don't have to waste time wondering where they left off or trying to remember what the title is of that book a friend recommended. 
 
 It is a basic collection view app that shows a collection of books. When you click one,   it opens up a table view where the table is made up of the book's chapters. 
 
