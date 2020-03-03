@@ -65,7 +65,7 @@
                                 <size key="customSize" width="109" height="99"/>
                                 <connections>
                                     <outlet property="bookImageView" destination="VZR-kg-OUJ" id="RSw-Lq-Kxw"/>
-                                    <outlet property="bookTitle" destination="Vl8-pv-stk" id="9II-Zv-FF2"/>
+                                    <outlet property="bookTitleLabel" destination="Vl8-pv-stk" id="9II-Zv-FF2"/>
                                     <segue destination="bqB-2P-MeY" kind="show" id="sNz-kd-Joc"/>
                                 </connections>
                             </collectionViewCell>
@@ -116,6 +116,14 @@
                                     <constraint firstItem="DuW-cx-25u" firstAttribute="leading" secondItem="FdO-Hx-TS4" secondAttribute="leading" constant="20" id="ynJ-Tb-i0P"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjy-n3-k87">
+                                <rect key="frame" x="192" y="149" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addButtonTapped:" destination="nn0-wv-Gvd" eventType="touchUpInside" id="Otr-vz-qhN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -125,6 +133,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xqr-8n-Plq"/>
                     </view>
+                    <connections>
+                        <outlet property="addNumberOfChaptersTextField" destination="DuW-cx-25u" id="YoV-2k-jbg"/>
+                        <outlet property="addTitleTextField" destination="UMw-DS-2WN" id="wyD-LK-vhF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r2r-2C-Zej" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -145,11 +157,11 @@
                                 <rect key="frame" x="0.0" y="182" width="414" height="680"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="b9b-vW-v4j" customClass="BookTableViewCell" customModule="ReadABook" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="b9b-vW-v4j" customClass="BookTableViewCell" customModule="ReadABook" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="b9b-vW-v4j" id="zeS-J7-EzJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="370" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBW-gB-Eay">
@@ -164,6 +176,11 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F1y-eL-efH">
+                                                    <rect key="frame" x="346" y="-3" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" backgroundImage="unchecked"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="hto-Gh-eKz" firstAttribute="leading" secondItem="iBW-gB-Eay" secondAttribute="trailing" constant="20" id="0gx-g6-7TZ"/>
@@ -173,12 +190,16 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="chapterNumberLabel" destination="iBW-gB-Eay" id="cGb-iF-45L"/>
-                                            <outlet property="chapterTitleLabel" destination="hto-Gh-eKz" id="f5h-6t-Eph"/>
+                                            <outlet property="chapterNumberLabel" destination="iBW-gB-Eay" id="sh8-IC-85w"/>
+                                            <outlet property="chapterTitleLabel" destination="hto-Gh-eKz" id="WI4-Zd-FyY"/>
                                             <segue destination="48R-ka-Wbc" kind="show" id="4Ta-2N-u1d"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="bqB-2P-MeY" id="edI-yM-fdw"/>
+                                    <outlet property="delegate" destination="bqB-2P-MeY" id="Ubz-uJ-07O"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -194,6 +215,9 @@
                         <viewLayoutGuide key="safeArea" id="uq0-5I-xMt"/>
                     </view>
                     <navigationItem key="navigationItem" id="SRP-yG-ixo"/>
+                    <connections>
+                        <outlet property="progressBar" destination="zvW-au-1GA" id="rDo-gk-RZ1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mQE-S1-677" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -223,6 +247,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25b-1G-ntY">
                                         <rect key="frame" x="170" y="108" width="34" height="30"/>
                                         <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="saveButtonTapped:" destination="48R-ka-Wbc" eventType="touchUpInside" id="Hzw-Kk-XO0"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -242,6 +269,10 @@
                         <viewLayoutGuide key="safeArea" id="oUt-UE-BFr"/>
                     </view>
                     <navigationItem key="navigationItem" id="iQL-8M-20F"/>
+                    <connections>
+                        <outlet property="chapterCommentsTextField" destination="lK8-6g-7n5" id="LiG-gH-gMw"/>
+                        <outlet property="chapterTitleTextField" destination="CSn-Ub-fOF" id="W7u-Fk-90v"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CeY-kR-ah5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -268,5 +299,6 @@
     </scenes>
     <resources>
         <image name="book.circle" catalog="system" width="64" height="60"/>
+        <image name="unchecked" width="50" height="50"/>
     </resources>
 </document>
