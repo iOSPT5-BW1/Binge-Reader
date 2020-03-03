@@ -3,6 +3,9 @@ import UIKit
 
 class BookTableViewController: UIViewController {
     
+    var bookController = BookController()
+    var chapterController = ChapterController()
+    
     var book: Book? {
         didSet {
             
@@ -15,8 +18,6 @@ class BookTableViewController: UIViewController {
     let progress = Progress(totalUnitCount: 10)
 
     private func updateViews() {
-        progressLabel.text = book?.chapters.
-        //"\(finished chapters)/(total chapters)% Complete"
+        progressLabel.text = "\(bookController.readPercentageCalculator(chapters: chapterController.chapters))% Finished"
     }
-
 }

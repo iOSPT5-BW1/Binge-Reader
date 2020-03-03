@@ -5,6 +5,17 @@ class BookController {
     
     var bookList: [Book] = []
     
+    func readPercentageCalculator(chapters: [Chapter]) -> Int {
+        var readChapters: [Chapter] = []
+        for chapter in chapters {
+            if chapter.chapterFinished {
+                readChapters.append(chapter)
+            }
+        }
+        let percentage = (readChapters.count/chapters.count) * 100
+        return percentage
+    }
+    
     init() {
         if UserDefaults.standard.bool(forKey: .alreadyExistsKey) {
             loadFromPersistentStore()
@@ -21,8 +32,7 @@ class BookController {
         bookList.append(book)
         saveToPersistentStore()
     }
-    
-    
+
     
     // MARK: - Persistence
     
