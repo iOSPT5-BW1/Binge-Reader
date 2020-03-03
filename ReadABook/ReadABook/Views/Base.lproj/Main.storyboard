@@ -176,9 +176,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F1y-eL-efH">
-                                                    <rect key="frame" x="346" y="-3" width="50" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F1y-eL-efH">
+                                                    <rect key="frame" x="344" y="-4" width="50" height="50.5"/>
                                                     <state key="normal" backgroundImage="unchecked"/>
                                                 </button>
                                             </subviews>
@@ -186,7 +185,10 @@
                                                 <constraint firstItem="hto-Gh-eKz" firstAttribute="leading" secondItem="iBW-gB-Eay" secondAttribute="trailing" constant="20" id="0gx-g6-7TZ"/>
                                                 <constraint firstItem="iBW-gB-Eay" firstAttribute="centerY" secondItem="zeS-J7-EzJ" secondAttribute="centerY" id="6G3-8o-jMo"/>
                                                 <constraint firstItem="iBW-gB-Eay" firstAttribute="leading" secondItem="zeS-J7-EzJ" secondAttribute="leading" constant="20" id="Lis-Nn-N5l"/>
+                                                <constraint firstAttribute="trailing" secondItem="F1y-eL-efH" secondAttribute="trailing" constant="20" id="N2e-FZ-jMI"/>
+                                                <constraint firstItem="F1y-eL-efH" firstAttribute="centerY" secondItem="hto-Gh-eKz" secondAttribute="centerY" id="P0m-0G-IKL"/>
                                                 <constraint firstItem="iBW-gB-Eay" firstAttribute="top" secondItem="hto-Gh-eKz" secondAttribute="bottom" constant="-20.5" id="QY7-Ip-jiu"/>
+                                                <constraint firstItem="F1y-eL-efH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hto-Gh-eKz" secondAttribute="trailing" constant="20" id="gts-Or-cLL"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
