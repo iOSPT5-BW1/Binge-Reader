@@ -5,9 +5,26 @@ class BookController {
     
     var bookList: [Book] = []
     
-    // Needs an init() that looks for an array in the persistent store else starts an empty array. Delete that empty array above.
+    init() {
+        if UserDefaults.standard.bool(forKey: .alreadyExistsKey) {
+            loadFromPersistentStore()
+        } else {
+            saveToPersistentStore()
+            UserDefaults.standard.set(true, forKey: .alreadyExistsKey)
+        }
+    }
     
-    // Mark: - Persistence
+    // MARK: - CRUD
+    
+    func createBook(title: String, numberOfChapters: Int, chapters: [Chapter], bookFinished: Bool) {
+        let book = Book(title: title, numberOfChapters: numberOfChapters, chapters: chapters, bookFinished: false)
+        bookList.append(book)
+        saveToPersistentStore()
+    }
+    
+    
+    
+    // MARK: - Persistence
     
     private var persistentFileURL: URL? {
         let fileManager = FileManager.default
