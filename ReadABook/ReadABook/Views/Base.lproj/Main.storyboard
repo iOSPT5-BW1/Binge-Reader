@@ -96,7 +96,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="FdO-Hx-TS4">
-                                <rect key="frame" x="0.0" y="20" width="414" height="103"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="153"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title of Book" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UMw-DS-2WN">
                                         <rect key="frame" x="20" y="0.0" width="374" height="49"/>
@@ -108,6 +108,13 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjy-n3-k87">
+                                        <rect key="frame" x="192" y="123" width="30" height="30"/>
+                                        <state key="normal" title="Add"/>
+                                        <connections>
+                                            <action selector="addButtonTapped:" destination="nn0-wv-Gvd" eventType="touchUpInside" id="Otr-vz-qhN"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="UMw-DS-2WN" firstAttribute="leading" secondItem="FdO-Hx-TS4" secondAttribute="leading" constant="20" id="EHN-II-Krf"/>
@@ -116,14 +123,6 @@
                                     <constraint firstItem="DuW-cx-25u" firstAttribute="leading" secondItem="FdO-Hx-TS4" secondAttribute="leading" constant="20" id="ynJ-Tb-i0P"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjy-n3-k87">
-                                <rect key="frame" x="192" y="149" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add"/>
-                                <connections>
-                                    <action selector="addButtonTapped:" destination="nn0-wv-Gvd" eventType="touchUpInside" id="Otr-vz-qhN"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -150,11 +149,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zvW-au-1GA">
-                                <rect key="frame" x="60" y="160" width="294" height="2"/>
-                            </progressView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dXB-wp-ayB">
+                                <rect key="frame" x="20" y="160" width="374" height="32.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="##% Finished" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SRo-Of-EgT">
+                                        <rect key="frame" x="135.5" y="0.0" width="103.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bad-rX-xsN">
+                                        <rect key="frame" x="10" y="30.5" width="354" height="2"/>
+                                    </progressView>
+                                </subviews>
+                            </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fAh-Pc-ZJX">
-                                <rect key="frame" x="0.0" y="182" width="414" height="680"/>
+                                <rect key="frame" x="0.0" y="212.5" width="414" height="649.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="b9b-vW-v4j" customClass="BookTableViewCell" customModule="ReadABook" customModuleProvider="target">
@@ -165,19 +175,20 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iBW-gB-Eay">
-                                                    <rect key="frame" x="20" y="11.5" width="12" height="21"/>
+                                                    <rect key="frame" x="20" y="11.5" width="12" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chapter Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hto-Gh-eKz">
-                                                    <rect key="frame" x="52" y="11" width="99.5" height="21"/>
+                                                    <rect key="frame" x="52" y="11.5" width="99.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F1y-eL-efH">
-                                                    <rect key="frame" x="344" y="-4" width="50" height="50.5"/>
+                                                    <rect key="frame" x="344" y="-3.5" width="50" height="50.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <state key="normal" backgroundImage="unchecked"/>
                                                 </button>
                                             </subviews>
@@ -206,19 +217,20 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="fAh-Pc-ZJX" firstAttribute="top" secondItem="dXB-wp-ayB" secondAttribute="bottom" constant="20" id="9nq-zc-nx7"/>
                             <constraint firstItem="uq0-5I-xMt" firstAttribute="bottom" secondItem="fAh-Pc-ZJX" secondAttribute="bottom" id="CHe-qV-F2j"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="zvW-au-1GA" secondAttribute="trailing" constant="40" id="CRL-Y5-XHP"/>
-                            <constraint firstItem="fAh-Pc-ZJX" firstAttribute="top" secondItem="zvW-au-1GA" secondAttribute="bottom" constant="20" id="HKE-Q2-vOb"/>
-                            <constraint firstItem="zvW-au-1GA" firstAttribute="leading" secondItem="1f8-Rr-EkD" secondAttribute="leadingMargin" constant="40" id="Nvw-a3-pGs"/>
+                            <constraint firstItem="dXB-wp-ayB" firstAttribute="top" secondItem="uq0-5I-xMt" secondAttribute="top" constant="20" id="P12-ZK-QaT"/>
+                            <constraint firstItem="uq0-5I-xMt" firstAttribute="trailing" secondItem="dXB-wp-ayB" secondAttribute="trailing" constant="20" id="Q0s-rQ-bYf"/>
+                            <constraint firstItem="dXB-wp-ayB" firstAttribute="leading" secondItem="uq0-5I-xMt" secondAttribute="leading" constant="20" id="fGb-u0-bBg"/>
                             <constraint firstItem="fAh-Pc-ZJX" firstAttribute="leading" secondItem="uq0-5I-xMt" secondAttribute="leading" id="hmJ-1f-bAz"/>
-                            <constraint firstItem="zvW-au-1GA" firstAttribute="top" secondItem="uq0-5I-xMt" secondAttribute="top" constant="20" id="imj-uX-zNh"/>
                             <constraint firstItem="uq0-5I-xMt" firstAttribute="trailing" secondItem="fAh-Pc-ZJX" secondAttribute="trailing" id="vjb-Ru-3F0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uq0-5I-xMt"/>
                     </view>
                     <navigationItem key="navigationItem" id="SRP-yG-ixo"/>
                     <connections>
-                        <outlet property="progressBar" destination="zvW-au-1GA" id="rDo-gk-RZ1"/>
+                        <outlet property="progressLabel" destination="SRo-Of-EgT" id="YnT-Gg-PVd"/>
+                        <outlet property="progressView" destination="bad-rX-xsN" id="VgI-sc-53T"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mQE-S1-677" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
