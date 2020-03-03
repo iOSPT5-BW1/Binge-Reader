@@ -16,6 +16,12 @@ class BookController {
     
     // MARK: - CRUD
     
+    func createBook(title: String, numberOfChapters: Int, chapters: [Chapter], bookFinished: Bool) {
+        let book = Book(title: title, numberOfChapters: numberOfChapters, chapters: chapters, bookFinished: false)
+        bookList.append(book)
+        saveToPersistentStore()
+    }
+    
     
     
     // MARK: - Persistence
