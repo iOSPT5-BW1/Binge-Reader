@@ -5,7 +5,7 @@ class BookController {
     
     var bookList: [Book] = []
     
-    // Needs an init() that looks for an aray in the persistent store else starts an empty array. Delete that empty array above.
+    // Needs an init() that looks for an array in the persistent store else starts an empty array. Delete that empty array above.
     
     // Mark: - Persistence
     
