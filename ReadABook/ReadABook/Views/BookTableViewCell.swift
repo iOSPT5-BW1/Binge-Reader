@@ -5,6 +5,7 @@ class BookTableViewCell: UITableViewCell {
 
     @IBOutlet weak var chapterNumberLabel: UILabel!
     @IBOutlet weak var chapterTitleLabel: UILabel!
+    @IBOutlet weak var readButton: UIButton!
     
     var chapter: Chapter?
     
@@ -17,5 +18,7 @@ class BookTableViewCell: UITableViewCell {
     private func updateViews() {
 //        chapterNumberLabel.text =
         chapterTitleLabel.text = book?.chapters[0].chapterTitle
+    }
+    @IBAction func readButtonTapped(_ sender: Any) {
     }
 }
