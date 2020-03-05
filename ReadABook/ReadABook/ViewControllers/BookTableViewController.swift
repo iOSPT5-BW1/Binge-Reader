@@ -6,9 +6,14 @@ class BookTableViewController: UIViewController, UITableViewDataSource {
     var bookController: BookController?
     var chapterController = ChapterController()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        updateViews()
+    }
+    
     var book: Book? {
         didSet {
-            
+            updateViews()
         }
     }
     
@@ -16,9 +21,10 @@ class BookTableViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var progressView: UIProgressView!
     
     let progress = Progress(totalUnitCount: 100)
+    //FINISH THIS GUY
     
     private func updateViews() {
-        progressLabel.text = "\(bookController?.readPercentageCalculator(chapters: chapterController.chapters))% Finished"
+        progressLabel.text = "\(bookController?.readPercentageCalculator(chapters: chapterController.chapters) ?? 0)% Finished"
     }
     
     // MARK: - TableView Delegate Methods

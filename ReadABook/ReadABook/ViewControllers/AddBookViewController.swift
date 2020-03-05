@@ -19,6 +19,8 @@ class AddBookViewController: UIViewController {
     @IBOutlet weak var addTitleTextField: UITextField!
     @IBOutlet weak var addNumberOfChaptersTextField: UITextField!
     
+    var delegate: AddBookDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -31,9 +33,13 @@ class AddBookViewController: UIViewController {
         
         //unwrap the textfield for the int and cast it to an int here
         
+        // I removed the book, because we are not using and are just creating a book with the create function below. 
         var book = Book(title: bookTitle, numberOfChapters: Int(numberOfChapters)!, bookFinished: false)
         
-        bookController?.createBook(title: bookTitle, numberOfChapters: Int(numberOfChapters)!, bookFinished: false)
+        // Replacing this with the 'bookWasCreated' function
+        // bookController?.createBook(title: bookTitle, numberOfChapters: Int(numberOfChapters)!, bookFinished: false)
+        
+        delegate?.bookWasCreated(book)
         
         self.dismiss(animated: true, completion: nil)
     }

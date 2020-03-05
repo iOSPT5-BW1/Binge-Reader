@@ -10,12 +10,12 @@ class BookTableViewCell: UITableViewCell {
     
     var book: Book? {
         didSet {
-//            self.updateViews()
+            self.updateViews()
         }
     }
     
-//    private func updateViews() {
-//        chapterNumberLabel.text = book?.chapters.firstIndex(where: chapter)
-//        chapterTitleLabel.text = 
-//    }
+    private func updateViews() {
+//        chapterNumberLabel.text =
+        chapterTitleLabel.text = book?.chapters[0].chapterTitle
+    }
 }

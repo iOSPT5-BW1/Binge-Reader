@@ -23,7 +23,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BookCollectionCell" id="LRr-xa-Zq0" customClass="BookCollectionViewCell" customModule="ReadABook" customModuleProvider="target">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BookCollectionViewCell" id="LRr-xa-Zq0" customClass="BookCollectionViewCell" customModule="ReadABook" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="109" height="99"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="yhU-N8-AoY">
@@ -66,7 +66,7 @@
                                 <connections>
                                     <outlet property="bookImageView" destination="VZR-kg-OUJ" id="RSw-Lq-Kxw"/>
                                     <outlet property="bookTitleLabel" destination="Vl8-pv-stk" id="9II-Zv-FF2"/>
-                                    <segue destination="bqB-2P-MeY" kind="show" id="sNz-kd-Joc"/>
+                                    <segue destination="bqB-2P-MeY" kind="show" identifier="BookTableViewSegue" id="sNz-kd-Joc"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -78,7 +78,7 @@
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="J8P-Ic-Qz4">
                         <barButtonItem key="rightBarButtonItem" title="Add Book" id="Zgl-94-fbw">
                             <connections>
-                                <segue destination="nn0-wv-Gvd" kind="presentation" id="L2l-iG-zJ8"/>
+                                <segue destination="nn0-wv-Gvd" kind="presentation" identifier="AddBookSegue" id="NCC-Tk-rQU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -112,7 +112,7 @@
                                         <rect key="frame" x="192" y="123" width="30" height="30"/>
                                         <state key="normal" title="Add"/>
                                         <connections>
-                                            <action selector="addButtonTapped:" destination="nn0-wv-Gvd" eventType="touchUpInside" id="Otr-vz-qhN"/>
+                                            <action selector="addButtonTapped:" destination="nn0-wv-Gvd" eventType="touchUpInside" id="n00-Ll-3fu"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -133,8 +133,8 @@
                         <viewLayoutGuide key="safeArea" id="xqr-8n-Plq"/>
                     </view>
                     <connections>
-                        <outlet property="addNumberOfChaptersTextField" destination="DuW-cx-25u" id="YoV-2k-jbg"/>
-                        <outlet property="addTitleTextField" destination="UMw-DS-2WN" id="wyD-LK-vhF"/>
+                        <outlet property="addNumberOfChaptersTextField" destination="DuW-cx-25u" id="oge-nv-NJq"/>
+                        <outlet property="addTitleTextField" destination="UMw-DS-2WN" id="xVZ-Pm-zaa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r2r-2C-Zej" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -205,7 +205,7 @@
                                         <connections>
                                             <outlet property="chapterNumberLabel" destination="iBW-gB-Eay" id="sh8-IC-85w"/>
                                             <outlet property="chapterTitleLabel" destination="hto-Gh-eKz" id="WI4-Zd-FyY"/>
-                                            <segue destination="48R-ka-Wbc" kind="show" id="4Ta-2N-u1d"/>
+                                            <segue destination="48R-ka-Wbc" kind="show" identifier="ChapterDetailSegue" id="Ilj-gh-tQ3"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -235,7 +235,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mQE-S1-677" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2053.6231884057975" y="124.55357142857142"/>
+            <point key="canvasLocation" x="2054" y="125"/>
         </scene>
         <!--Chapter Detail View Controller-->
         <scene sceneID="ZDy-GH-P0u">
@@ -261,9 +261,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25b-1G-ntY">
                                         <rect key="frame" x="170" y="108" width="34" height="30"/>
                                         <state key="normal" title="Save"/>
-                                        <connections>
-                                            <action selector="saveButtonTapped:" destination="48R-ka-Wbc" eventType="touchUpInside" id="Hzw-Kk-XO0"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -284,8 +281,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="iQL-8M-20F"/>
                     <connections>
-                        <outlet property="chapterCommentsTextField" destination="lK8-6g-7n5" id="LiG-gH-gMw"/>
-                        <outlet property="chapterTitleTextField" destination="CSn-Ub-fOF" id="W7u-Fk-90v"/>
+                        <outlet property="chapterCommentsTextField" destination="lK8-6g-7n5" id="yaK-ff-SP4"/>
+                        <outlet property="chapterTitleTextField" destination="CSn-Ub-fOF" id="jHz-g5-V2a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CeY-kR-ah5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
