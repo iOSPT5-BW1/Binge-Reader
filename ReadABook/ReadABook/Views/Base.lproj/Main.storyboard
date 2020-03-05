@@ -231,7 +231,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uq0-5I-xMt"/>
                     </view>
-                    <navigationItem key="navigationItem" id="SRP-yG-ixo"/>
+                    <navigationItem key="navigationItem" id="SRP-yG-ixo">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ItM-KX-PLx">
+                            <connections>
+                                <segue destination="48R-ka-Wbc" kind="show" identifier="AddChapterSegue" id="lvM-qD-RyX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="progressLabel" destination="SRo-Of-EgT" id="YnT-Gg-PVd"/>
                         <outlet property="progressView" destination="bad-rX-xsN" id="VgI-sc-53T"/>
@@ -317,4 +323,7 @@
         <image name="book.circle" catalog="system" width="64" height="60"/>
         <image name="unchecked" width="50" height="50"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="lvM-qD-RyX"/>
+    </inferredMetricsTieBreakers>
 </document>

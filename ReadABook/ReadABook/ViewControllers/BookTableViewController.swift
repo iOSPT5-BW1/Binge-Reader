@@ -6,6 +6,7 @@ class BookTableViewController: UIViewController, UITableViewDataSource {
     var bookController: BookController?
     var chapterController = ChapterController()
     var chapterDetailViewController = ChapterDetailViewController()
+    var chapters: [Chapter]? 
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -27,14 +28,23 @@ class BookTableViewController: UIViewController, UITableViewDataSource {
     //FINISH THIS GUY
     
     private func updateViews() {
-        progressLabel.text = "\(bookController?.readPercentageCalculator(chapters: chapterController.chapters) ?? 0)% Finished"
+       // progressLabel.text = "\(bookController?.readPercentageCalculator(chapters: chapterController.chapters) ?? 0)% Finished"
+        //Trouble shoot this guy
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ChapterDetailSegue" {
-            if let indexPath = tableView.indexPathForSelectedRow,
+            if let indexPath = tableView.indexPathForSelectedRow, // see line 130 from reading list
                 let chapterDetailVC = segue.destination as? ChapterDetailViewController {
                 chapterDetailVC.delegate = self
+                // This needs to be fleshed out
+                // We need the chapterDetailVC text fields to populate with the text that was already written if there is any.
+                //Why haven't we used the index path?
+            }
+        } else if segue.identifier == "AddChapterSegue" {
+            if let chapterDetailVC = segue.destination as? ChapterDetailViewController {
+                chapterDetailVC.delegate = self
+                
             }
         }
     }
@@ -47,18 +57,17 @@ class BookTableViewController: UIViewController, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookTableViewCell", for: indexPath) as? BookTableViewCell else { return UITableViewCell() }
         let chapter = book?.chapters[indexPath.row]
-        cell.chapter = chapter
-        cell.chapterNumberLabel.text = "\(String(describing: book?.chapters[indexPath.row]))"
+        cell.chapter = chapter 
+        cell.chapterNumberLabel.text = "\(book?.chapters[indexPath.row])"
         return cell
         
-        // Cell has no chapter, which lead us to try to set up the BookTableViewCell. We couldn't figure out what to set the chapterNumberLabel equasl to because we didn't have access to the indexPath.row over on that file.
+        // Cell has no chapter, which lead us to try to set up the BookTableViewCell. We couldn't figure out what to set the chapterNumberLabel equal to because we didn't have access to the indexPath.row over on that file.
     }
 }
 
 extension BookTableViewController: EditChapterDelegate {
     func editChapter(_ chapter: Chapter) {
-        chapter.chapterTitle = chapterDetailViewController.chapterTitleTextField.text ?? ""
-        chapter.chapterDescription = "\(String(describing: chapterDetailViewController.chapterCommentsTextField))"
+        chapters?.append(chapter)
         tableView.reloadData()
     }
     
