@@ -272,6 +272,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25b-1G-ntY">
                                         <rect key="frame" x="170" y="108" width="34" height="30"/>
                                         <state key="normal" title="Save"/>
+                                        <connections>
+                                            <action selector="saveButtonTapped:" destination="48R-ka-Wbc" eventType="touchUpInside" id="1Mc-HF-GD0"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
