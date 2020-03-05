@@ -5,9 +5,36 @@ class BookController {
     
     var bookList: [Book] = []
     
-    // Needs an init() that looks for an array in the persistent store else starts an empty array. Delete that empty array above.
+    func readPercentageCalculator(chapters: [Chapter]) -> Int {
+        var readChapters: [Chapter] = []
+        for chapter in chapters {
+            if chapter.chapterFinished {
+                readChapters.append(chapter)
+            }
+        }
+        let percentage = (readChapters.count/chapters.count) * 100
+        return percentage
+    }
     
-    // Mark: - Persistence
+    init() {
+        if UserDefaults.standard.bool(forKey: .alreadyExistsKey) {
+            loadFromPersistentStore()
+        } else {
+            saveToPersistentStore()
+            UserDefaults.standard.set(true, forKey: .alreadyExistsKey)
+        }
+    }
+    
+    // MARK: - CRUD
+    
+    func createBook(title: String, numberOfChapters: Int, bookFinished: Bool) {
+        let book = Book(title: title, numberOfChapters: numberOfChapters, bookFinished: false)
+        bookList.append(book)
+        saveToPersistentStore()
+    }
+
+    
+    // MARK: - Persistence
     
     private var persistentFileURL: URL? {
         let fileManager = FileManager.default

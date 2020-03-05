@@ -6,13 +6,16 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var chapterNumberLabel: UILabel!
     @IBOutlet weak var chapterTitleLabel: UILabel!
     
+    var chapter: Chapter?
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    var book: Book? {
+        didSet {
+            self.updateViews()
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    
+    private func updateViews() {
+//        chapterNumberLabel.text =
+        chapterTitleLabel.text = book?.chapters[0].chapterTitle
     }
-
 }
