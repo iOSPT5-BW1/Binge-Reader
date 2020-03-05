@@ -190,6 +190,9 @@
                                                     <rect key="frame" x="344" y="-3.5" width="50" height="50.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <state key="normal" backgroundImage="unchecked"/>
+                                                    <connections>
+                                                        <action selector="readButtonTapped:" destination="b9b-vW-v4j" eventType="touchUpInside" id="4OF-Oi-NTG"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -205,6 +208,7 @@
                                         <connections>
                                             <outlet property="chapterNumberLabel" destination="iBW-gB-Eay" id="sh8-IC-85w"/>
                                             <outlet property="chapterTitleLabel" destination="hto-Gh-eKz" id="WI4-Zd-FyY"/>
+                                            <outlet property="readButton" destination="F1y-eL-efH" id="45J-xN-7eC"/>
                                             <segue destination="48R-ka-Wbc" kind="show" identifier="ChapterDetailSegue" id="Ilj-gh-tQ3"/>
                                         </connections>
                                     </tableViewCell>
@@ -231,6 +235,7 @@
                     <connections>
                         <outlet property="progressLabel" destination="SRo-Of-EgT" id="YnT-Gg-PVd"/>
                         <outlet property="progressView" destination="bad-rX-xsN" id="VgI-sc-53T"/>
+                        <outlet property="tableView" destination="fAh-Pc-ZJX" id="AiT-RH-hnk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mQE-S1-677" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
