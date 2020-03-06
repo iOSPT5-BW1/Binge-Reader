@@ -23,6 +23,7 @@ class BookTableViewController: UIViewController, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = book?.title
         updateViews()
     }
     
@@ -66,5 +67,12 @@ extension BookTableViewController: EditChapterDelegate {
     func editChapter(_ chapter: Chapter) {
         chapters?.append(chapter)
         tableView.reloadData()
+    }
+}
+
+extension BookTableViewController: BookTableViewCellDelegate {
+    func toggleHasBeenRead(for cell: BookTableViewCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else {return}
+        
     }
 }
