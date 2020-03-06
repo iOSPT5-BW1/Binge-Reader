@@ -70,9 +70,3 @@ extension BookTableViewController: EditChapterDelegate {
     }
 }
 
-extension BookTableViewController: BookTableViewCellDelegate {
-    func toggleHasBeenRead(for cell: BookTableViewCell) {
-        guard let indexPath = tableView.indexPath(for: cell) else {return}
-        
-    }
-}
