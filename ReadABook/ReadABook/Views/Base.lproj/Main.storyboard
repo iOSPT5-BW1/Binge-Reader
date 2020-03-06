@@ -191,7 +191,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <state key="normal" backgroundImage="unchecked"/>
                                                     <connections>
-                                                        <action selector="readButtonTapped:" destination="b9b-vW-v4j" eventType="touchUpInside" id="4OF-Oi-NTG"/>
+                                                        <action selector="readButtonTapped:" destination="b9b-vW-v4j" eventType="touchUpInside" id="qct-LV-ssb"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -208,7 +208,7 @@
                                         <connections>
                                             <outlet property="chapterNumberLabel" destination="iBW-gB-Eay" id="sh8-IC-85w"/>
                                             <outlet property="chapterTitleLabel" destination="hto-Gh-eKz" id="WI4-Zd-FyY"/>
-                                            <outlet property="readButton" destination="F1y-eL-efH" id="45J-xN-7eC"/>
+                                            <outlet property="readButton" destination="F1y-eL-efH" id="4QC-DX-A4o"/>
                                             <segue destination="48R-ka-Wbc" kind="show" identifier="ChapterDetailSegue" id="Ilj-gh-tQ3"/>
                                         </connections>
                                     </tableViewCell>

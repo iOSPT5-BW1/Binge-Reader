@@ -6,14 +6,10 @@ class BookTableViewController: UIViewController, UITableViewDataSource {
     var bookController: BookController?
     var chapterController = ChapterController()
     var chapterDetailViewController = ChapterDetailViewController()
-    var chapters: [Chapter]? 
+    var chapters: [Chapter]?
     
-    @IBOutlet weak var tableView: UITableView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        updateViews()
-    }
+    let progress = Progress(totalUnitCount: 100)
+    //FINISH THIS GUY
     
     var book: Book? {
         didSet {
@@ -21,14 +17,17 @@ class BookTableViewController: UIViewController, UITableViewDataSource {
         }
     }
     
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var progressView: UIProgressView!
     
-    let progress = Progress(totalUnitCount: 100)
-    //FINISH THIS GUY
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        updateViews()
+    }
     
     private func updateViews() {
-       // progressLabel.text = "\(bookController?.readPercentageCalculator(chapters: chapterController.chapters) ?? 0)% Finished"
+        // progressLabel.text = "\(bookController?.readPercentageCalculator(chapters: chapterController.chapters) ?? 0)% Finished"
         //Trouble shoot this guy
     }
     
@@ -60,8 +59,6 @@ class BookTableViewController: UIViewController, UITableViewDataSource {
         cell.chapter = chapter 
         cell.chapterNumberLabel.text = "\(book?.chapters[indexPath.row])"
         return cell
-        
-        // Cell has no chapter, which lead us to try to set up the BookTableViewCell. We couldn't figure out what to set the chapterNumberLabel equal to because we didn't have access to the indexPath.row over on that file.
     }
 }
 
@@ -70,6 +67,4 @@ extension BookTableViewController: EditChapterDelegate {
         chapters?.append(chapter)
         tableView.reloadData()
     }
-    
-    
 }

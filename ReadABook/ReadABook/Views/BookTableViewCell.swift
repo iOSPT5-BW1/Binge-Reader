@@ -19,6 +19,8 @@ class BookTableViewCell: UITableViewCell {
 //        chapterNumberLabel.text =
         chapterTitleLabel.text = book?.chapters[0].chapterTitle
     }
+   
     @IBAction func readButtonTapped(_ sender: Any) {
+        
     }
 }

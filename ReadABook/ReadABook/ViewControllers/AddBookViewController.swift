@@ -41,7 +41,6 @@ class AddBookViewController: UIViewController {
         // bookController?.createBook(title: bookTitle, numberOfChapters: Int(numberOfChapters)!, bookFinished: false)
         
         delegate?.bookWasCreated(book)
-        
         self.dismiss(animated: true, completion: nil)
     }
     
