@@ -21,7 +21,7 @@ class ChapterDetailViewController: UIViewController {
             let chapterComments = chapterCommentsTextField.text,
             !chapterTitle.isEmpty,
             !chapterComments.isEmpty else {return}
-        let chapter = Chapter(chapterTitle: chapterTitle, chapterDescription: chapterComments, readYet: false) // Make sure if wee are editing a chapter instead of creating a chapter, that the readYet doesn't reset to false.
+        let chapter = Chapter(chapterTitle: chapterTitle, chapterDescription: chapterComments, chapterFinished: false) // Make sure if wee are editing a chapter instead of creating a chapter, that the readYet doesn't reset to false.
         delegate?.editChapter(chapter)
         navigationController?.popViewController(animated: true)
     }

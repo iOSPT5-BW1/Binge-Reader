@@ -5,14 +5,14 @@ class BookController {
     
     var bookList: [Book] = []
     
-    func readPercentageCalculator(chapters: [Chapter]) -> Int {
+    func readPercentageCalculator(chapters: [Chapter]) -> Double {
         var readChapters: [Chapter] = []
         for chapter in chapters {
             if chapter.chapterFinished {
                 readChapters.append(chapter)
             }
         }
-        let percentage = (readChapters.count/chapters.count) * 100
+        let percentage: Double = (Double(readChapters.count)/Double(chapters.count)) * 100.0
         return percentage
     }
     
@@ -25,6 +25,15 @@ class BookController {
         }
     }
     
+    // MARK: - Helper Functions
+    func toggleChapterFinished(in book: Book, chapter: Chapter) {
+        guard let bookIndex = bookList.firstIndex(of: book) else { return }
+        let chapters = bookList[bookIndex].chapters
+        guard let chapterIndex = chapters.firstIndex(of: chapter) else { return }
+        let chapter = chapters[chapterIndex]
+        chapter.chapterFinished = !chapter.chapterFinished
+    }
+    
     // MARK: - CRUD
     
     func createBook(title: String, numberOfChapters: Int, bookFinished: Bool) {
@@ -32,7 +41,7 @@ class BookController {
         bookList.append(book)
         saveToPersistentStore()
     }
-
+    
     
     // MARK: - Persistence
     

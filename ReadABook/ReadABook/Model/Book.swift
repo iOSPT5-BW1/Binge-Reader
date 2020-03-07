@@ -1,13 +1,17 @@
 
 import Foundation
 
-class Book: Codable {
+class Book: Codable, Equatable {
+    static func == (lhs: Book, rhs: Book) -> Bool {
+        lhs.chapters == rhs.chapters 
+    }
+    
     var title: String
     var numberOfChapters: Int
     var chapters: [Chapter] {
         var chapters: [Chapter] = []
         for number in 1...numberOfChapters {
-            let chapter = Chapter(chapterTitle: "Chapter \(number)", chapterDescription: "", readYet: false)
+            let chapter = Chapter(chapterTitle: "Chapter \(number)", chapterDescription: "", chapterFinished: false)
             chapters.append(chapter)
         }
         return chapters

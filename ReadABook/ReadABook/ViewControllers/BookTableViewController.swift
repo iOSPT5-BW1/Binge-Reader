@@ -5,7 +5,6 @@ class BookTableViewController: UIViewController, UITableViewDataSource {
     
     var bookController: BookController?
     var chapterController = ChapterController()
-    var chapterDetailViewController = ChapterDetailViewController()
     var chapters: [Chapter]?
     
     let progress = Progress(totalUnitCount: 100)
@@ -28,8 +27,8 @@ class BookTableViewController: UIViewController, UITableViewDataSource {
     }
     
     private func updateViews() {
-        // progressLabel.text = "\(bookController?.readPercentageCalculator(chapters: chapterController.chapters) ?? 0)% Finished"
-        //Trouble shoot this guy
+//        progressLabel.text = "\(bookController?.readPercentageCalculator(chapters: chapterController.chapters).description ?? "0")% Finished"
+        // Why is my book controller nil in this update views? It should be coming through the segue from the BooksCollectionViewController.
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -56,9 +55,10 @@ class BookTableViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookTableViewCell", for: indexPath) as? BookTableViewCell else { return UITableViewCell() }
-        let chapter = book?.chapters[indexPath.row]
+        guard let chapter = book?.chapters[indexPath.row] else { return UITableViewCell() }
+        cell.delegate = self
         cell.chapter = chapter 
-        cell.chapterNumberLabel.text = "\(book?.chapters[indexPath.row])"
+        cell.chapterNumber = indexPath.row + 1
         return cell
     }
 }
@@ -70,3 +70,12 @@ extension BookTableViewController: EditChapterDelegate {
     }
 }
 
+extension BookTableViewController: BookTableViewCellDelegate {
+    func toggleHasBeenRead(with chapter: Chapter) {
+        guard let book = book else { return }
+        bookController?.toggleChapterFinished(in: book, chapter: chapter)
+        tableView.reloadData()
+    }
+    
+    
+}

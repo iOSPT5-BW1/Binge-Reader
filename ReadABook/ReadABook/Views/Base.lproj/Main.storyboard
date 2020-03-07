@@ -186,10 +186,9 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F1y-eL-efH">
-                                                    <rect key="frame" x="344" y="-3.5" width="50" height="50.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <state key="normal" backgroundImage="unchecked"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F1y-eL-efH">
+                                                    <rect key="frame" x="374.5" y="11" width="19.5" height="22"/>
+                                                    <state key="normal" image="square" catalog="system"/>
                                                     <connections>
                                                         <action selector="readButtonTapped:" destination="b9b-vW-v4j" eventType="touchUpInside" id="qct-LV-ssb"/>
                                                     </connections>
@@ -324,7 +323,7 @@
     </scenes>
     <resources>
         <image name="book.circle" catalog="system" width="64" height="60"/>
-        <image name="unchecked" width="50" height="50"/>
+        <image name="square" catalog="system" width="64" height="56"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lvM-qD-RyX"/>
