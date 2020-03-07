@@ -35,7 +35,7 @@ class AddBookViewController: UIViewController {
         //unwrap the textfield for the int and cast it to an int here
         
         // I removed the book, because we are not using and are just creating a book with the create function below. 
-        var book = Book(title: bookTitle, numberOfChapters: Int(numberOfChapters)!, bookFinished: false)
+        let book = Book(title: bookTitle, numberOfChapters: Int(numberOfChapters)!, bookFinished: false)
         
         // Replacing this with the 'bookWasCreated' function
         // bookController?.createBook(title: bookTitle, numberOfChapters: Int(numberOfChapters)!, bookFinished: false)

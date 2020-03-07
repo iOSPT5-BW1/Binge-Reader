@@ -50,12 +50,13 @@ class BookTableViewController: UIViewController, UITableViewDataSource {
     
     // MARK: - TableView Delegate Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        book?.numberOfChapters ?? 0
+        book?.chapters.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookTableViewCell", for: indexPath) as? BookTableViewCell else { return UITableViewCell() }
         guard let chapter = book?.chapters[indexPath.row] else { return UITableViewCell() }
+        print("\(chapter.chapterFinished) @ \(indexPath.row + 1)")
         cell.delegate = self
         cell.chapter = chapter 
         cell.chapterNumber = indexPath.row + 1

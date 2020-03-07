@@ -10,8 +10,6 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var chapterNumberLabel: UILabel!
     @IBOutlet weak var chapterTitleLabel: UILabel!
     @IBOutlet weak var readButton: UIButton!
-
-   // readButton.image {
     
     weak var delegate: BookTableViewCellDelegate?
     
@@ -36,8 +34,7 @@ class BookTableViewCell: UITableViewCell {
    
     @IBAction func readButtonTapped(_ sender: Any) {
         guard let chapter = chapter else { return }
-        print(chapter.chapterFinished)
         delegate?.toggleHasBeenRead(with: chapter)
-        print(chapter.chapterFinished)
+        print("I was tapped @ \(chapterNumber)!")
     }
 }

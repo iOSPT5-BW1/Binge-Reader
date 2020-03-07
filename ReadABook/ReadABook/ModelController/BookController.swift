@@ -31,7 +31,7 @@ class BookController {
         let chapters = bookList[bookIndex].chapters
         guard let chapterIndex = chapters.firstIndex(of: chapter) else { return }
         let chapter = chapters[chapterIndex]
-        chapter.chapterFinished = !chapter.chapterFinished
+        chapter.chapterFinished = true
     }
     
     // MARK: - CRUD
